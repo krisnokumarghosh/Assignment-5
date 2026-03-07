@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Github Issue Tracker | Login</title>
+
+    <!-- daisyUI and Tailwind -->
+     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+     <!-- google font -->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+
+      <!-- stylesheet -->
+       <link rel="stylesheet" href="./styles/style.css">
+</head>
+<body class="py-10 bg-[#F8FAFC] min-h-screen"> 
+   
+    <section class="max-w-[450px] shadow bg-white mx-auto h-[743px] rounded-xl">
+        <div class="text-center mb-6">
+            <img src="./assets/github-logo.png" alt="" class="mx-auto pt-8 mb-6">
+            <h1 class="font-semibold text-[24px] text-[#1F2937] mb-1">GitHub Issues Tracker</h1>
+            <p class="text-[#64748B]">Sign in to manage your issues</p>
+        </div>
+
+        <div class="max-w-[386px] mx-auto mb-6">
+          <fieldset class="fieldset">
+             <legend class="fieldset-legend font-medium text-[14px] text-[#1F2937]">Username</legend>
+             <input id="username-input" type="text" class="input w-full rounded-md" placeholder="Enter Username" />
+             <p class="label text-[#4A00FF]"> Default : admin</p>
+          </fieldset>
+          <fieldset class="fieldset">
+             <legend class="fieldset-legend font-medium text-[14px] text-[#1F2937]">Password</legend>
+             <input id="password-input" type="password" class="input w-full rounded-md" placeholder="Enter Password" />
+             <p class="label text-[#4A00FF]"> Default : admin123</p>
+          </fieldset>
+
+          <button onclick="signIn()" class="btn btn-primary w-full mt-6 rounded-md">Sign In</button>
+        </div>
+
+        <div class="flex justify-center items-center gap-2 max-w-[386px] mx-auto mb-6">
+            <img src="./assets/Line 1.png" alt="" class="max-w-[180px]">
+            <p class="text-[#1F2937]">OR</p>
+            <img src="./assets/Line 1.png" alt="" class="max-w-[180px]">
+        </div>
+
+        <div class="max-w-[386px] mx-auto mb-6 text-center">
+            <p class="text-[#64748B] text-[14px] mb-3">Demo Credentials:</p>
+            <div class="bg-[#F8FAFC] py-5 rounded-xl">
+                <p class="text-[#1F2937]"><span class="font-semibold">Username:</span> admin</p>
+                <p class="text-[#1F2937]"><span class="font-semibold">Password:</span> admin123</p>
+            </div>
+        </div>
+    </section>
+
+    <script src="./script/login.js"></script>
+</body>
+</html>

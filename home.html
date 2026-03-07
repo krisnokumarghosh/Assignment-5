@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Github Issue Tracker | Home</title>
+
+     <!-- daisyUI and Tailwind -->
+     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+     <!-- google font -->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+
+      <!-- stylesheet -->
+       <link rel="stylesheet" href="./styles/style.css">
+</head>
+<body class="bg-[#F8FAFC] min-h-screen"> 
+    <nav class="bg-white shadow py-4">
+        <section class="md:flex justify-between items-center px-9">
+            <div class="md:flex items-center gap-2">
+                <img src="./assets/github-logo.png" alt="" class="w-9 h-[37px]">
+                <h2 class="font-semibold text-[24px] text-[#1F2937]">GitHub Issues Tracker</h2>
+            </div>
+
+            <div class="flex gap-3">
+                <!-- search div -->
+                <div>
+                 <div>
+                   <div>
+                     <label class="input validator join-item">
+                     <input id="input-search" type="text" placeholder="Search issues...." required />
+                     </label>
+                  </div>
+                </div>
+                </div>
+
+                <button class="btn btn-primary">+  New Issue</button>
+            </div>
+        </section>
+    </nav>
+</body>
+</html>
