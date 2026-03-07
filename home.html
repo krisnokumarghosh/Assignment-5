@@ -42,7 +42,7 @@
         </section>
     </nav>
 
-    <main class="my-[70px] max-w-[70%] mx-auto ">
+    <main class="my-[70px] max-w-[75%] mx-auto ">
         <!-- btn section -->
          <section class="bg-white p-6 rounded-md shadow flex flex-wrap gap-4 mb-5">
             <button class="btn btn-primary px-[49px]">All</button>
@@ -51,22 +51,22 @@
          </section>
 
          <!-- all section -->
-         <section class="bg-[#FBFBFB] shadow rounded-md">
+         <section id="all-issue-container" class="bg-[#FBFBFB] shadow rounded-md">
             <!-- top div -->
-            <div class="p-6 md:flex justify-between items-center">
+            <div id="all-issue-count" class="p-6 md:flex justify-between items-center bg-white rounded-md shadow">
                 <!-- top left div -->
-                <div class="flex items-center gap-2">
+                <!-- <div class="flex items-center gap-2">
                     <div class="bg-[#ECE4FF] rounded-full p-2">
                         <img src="./assets/Aperture.png" alt="" class="h-[27px] w-[27px] ">
                     </div>
                     <div>
-                        <h2 class="font-semibold text-[20px] text-[#1F2937]">50 Issues</h2>
+                        <h2 class="font-semibold text-[20px] text-[#1F2937]">${issues.length} Issues</h2>
                         <p class="text-[#64748B]">Track and manage your project issues</p>
                     </div>
-                </div>
+                </div> -->
 
                 <!-- top right div -->
-                 <div class="flex gap-3">
+                 <!-- <div class="flex gap-3">
                     <div class="flex items-center gap-1">
                         <img src="./assets/Ellipse 2.png" alt="">
                         <p class="font-medium text-[#1F2937]">Open</p>
@@ -75,10 +75,43 @@
                         <img src="./assets/Ellipse 2 (1).png" alt="">
                         <p class="font-medium text-[#1F2937]">Closed</p>
                     </div>
-                 </div>
+                 </div> -->
             </div>
+            <!-- bottom div -->
+             <div id="all-issue-cards" class="p-6 grid md:grid-cols-2 lg:grid-cols-4 gap-3">
+                <!-- cards -->
+                <!-- <div class="bg-white shadow rounded-md">
+                    <div class="p-4">
+                    <div class="flex justify-between items-center mb-3">
+                        <img src="./assets/Open-Status.png" alt="">
+                        <p class="px-[25px] py-1.5 bg-red-200 rounded-full font-medium text-[12px] text-[#F8FAFC]">HIGH </p>
+                    </div>
+
+                    <div>
+                        <h3 class="font-semibold text-[14px] text-[#1F2937]">Fix navigation menu on mobile devices</h3>
+                        <p class="text-[12px] text-[#64748B]">The navigation menu doesn't collapse properly on mobile devices...</p>
+                        <div class="flex justify-between mt-3">
+                            <p class="px-[15px] py-1.5 bg-red-200 rounded-full font-medium text-[12px] text-[#F8FAFC]">BUG</p>
+                            <p class="px-[15px] py-1.5 bg-[#FFF8DB] rounded-full font-medium text-[12px] text-[#D97706]">HELP WANTED</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="p-4 border-t border-gray-200 space-y-1">
+                    <p class="text-[#64748B] text-[12px]">#1 by john_doe</p>
+                    <p class="text-[#64748B] text-[12px]">1/15/2024</p>
+                </div>
+                </div> -->
+
+
+             </div>
 
          </section>
     </main>
+
+
+
+    <script src="./script/home.js"></script>
 </body>
 </html>
