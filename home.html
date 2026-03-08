@@ -50,7 +50,16 @@
             <button onclick="showOnly('closed-btn') , loadClosedData() , activeOnly('closed-section')" id="closed-btn"class="btn px-[49px]">Closed</button>
          </section>
 
-         <!-- all section -->
+         <!-- spinner -->
+
+         <section id="spinner" class="flex justify-center hidden">
+            <span class="loading loading-dots loading-xl"></span>
+         </section>
+
+         <!-- cards -->
+
+         <section id="issue-container">
+            <!-- all section -->
          <section id="all-issue-container" class="bg-[#FBFBFB] shadow rounded-md">
 
             <div id="all-issue-count" class="p-6 md:flex justify-between items-center bg-white rounded-md shadow"></div>
@@ -80,6 +89,7 @@
             <div id="closed-issue-container" class="p-6 grid md:grid-cols-2 lg:grid-cols-4 gap-3"></div>
 
            </section>
+         </section>
     </main>
 
 

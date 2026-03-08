@@ -52,8 +52,20 @@ const activeOnly = (id) =>{
     only.classList.remove('hidden');
 }
 
+const manageSpinner = (status) =>{
+    if(status == true){
+         document.getElementById('spinner').classList.remove('hidden');
+         document.getElementById('issue-container').classList.add('hidden');
+    }
+    else{
+         document.getElementById('spinner').classList.add('hidden');
+         document.getElementById('issue-container').classList.remove('hidden');
+    }
+}
+
 
 const loadAllData = () =>{
+    manageSpinner(true);
     const url = "https://phi-lab-server.vercel.app/api/v1/lab/issues";
 
     fetch(url)
@@ -63,6 +75,7 @@ const loadAllData = () =>{
 
 
 const loadOpenData = () => {
+    manageSpinner(true);
     const url = "https://phi-lab-server.vercel.app/api/v1/lab/issues"
     fetch(url)
     .then((resp) => resp.json())
@@ -70,6 +83,7 @@ const loadOpenData = () => {
 }
 
 const loadClosedData = () =>{
+    manageSpinner(true);
      const url = "https://phi-lab-server.vercel.app/api/v1/lab/issues"
     fetch(url)
     .then((resp) => resp.json())
@@ -151,6 +165,7 @@ const displayAllData = (issues) =>{
         `
         allIssueCards.appendChild(issueCardDiv)
     })
+    manageSpinner(false);
 }
 
 
@@ -218,6 +233,7 @@ const displayOpenData = (open) =>{
        `
        openissueContainer.appendChild(openCardDiv)
     })
+    manageSpinner(false);
 } 
 
 const displayClosedData = (closed) =>{
@@ -284,6 +300,7 @@ const displayClosedData = (closed) =>{
         `
         closedIssueContainer.appendChild(closedCardDiv);
     })
+    manageSpinner(false);
     
 }
 
