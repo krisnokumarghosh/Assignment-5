@@ -145,7 +145,7 @@ const displayAllData = (issues) =>{
         
         
                 
-                <div onclick="loadIssueDetails(${issue.id})" class="bg-white shadow rounded-md h-64 ${issue.status === "open" ? 'border-t-3 border-green-400' : 'border-t-3 border-[#A855F7]'}">
+                <div onclick="loadIssueDetails(${issue.id})" class="bg-white shadow rounded-md min-h-64 ${issue.status === "open" ? 'border-t-3 border-green-400' : 'border-t-3 border-[#A855F7]'}">
                     <div class="p-4">
                     <div class="flex justify-between items-center mb-3">
                         ${issue.status === "open" ? '<img src="./assets/Open-Status.png" alt="">' : '<img src="./assets/Closed- Status .png" alt="">'}
@@ -256,7 +256,7 @@ const displayOpenData = (open) =>{
 
        openCardDiv.innerHTML = `
        
-        <div onclick="loadIssueDetails(${elem.id})" class="bg-white shadow rounded-md h-64 border-t-3 border-green-400">
+        <div onclick="loadIssueDetails(${elem.id})" class="bg-white shadow rounded-md min-h-64 border-t-3 border-green-400">
                     <div class="p-4">
                     <div class="flex justify-between items-center mb-3">
                        <img src="./assets/Open-Status.png" alt="">
@@ -323,7 +323,7 @@ const displayClosedData = (closed) =>{
 
         closedCardDiv.innerHTML = `
         
-            <div onclick="loadIssueDetails(${elem.id})" class="bg-white shadow rounded-md h-64 border-t-3 border-[#A855F7]">
+            <div onclick="loadIssueDetails(${elem.id})" class="bg-white shadow rounded-md min-h-64 border-t-3 border-[#A855F7]">
                     <div class="p-4">
                     <div class="flex justify-between items-center mb-3">
                        <img src="./assets/Closed- Status .png" alt="">
