@@ -39,6 +39,19 @@ const showOnly = (id) =>{
     active.classList.add('btn-primary');
 }
 
+const activeOnly = (id) =>{
+    const allSection = document.getElementById('all-issue-container');
+    const openSection = document.getElementById('open-section');
+    const closedSection = document.getElementById('closed-section');
+
+    allSection.classList.add('hidden');
+    openSection.classList.add('hidden');
+    closedSection.classList.add('hidden');
+
+    const only = document.getElementById(id);
+    only.classList.remove('hidden');
+}
+
 
 const loadAllData = () =>{
     const url = "https://phi-lab-server.vercel.app/api/v1/lab/issues";
