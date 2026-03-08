@@ -74,6 +74,15 @@ const loadAllData = () =>{
 }
 
 
+const loadIssueDetails = (id) =>{
+    const url = `https://phi-lab-server.vercel.app/api/v1/lab/issue/${id}`
+
+    fetch(url)
+    .then((res) => res.json())
+    .then((details) => displayIssueDetails(details.data))
+}
+
+
 const loadOpenData = () => {
     manageSpinner(true);
     const url = "https://phi-lab-server.vercel.app/api/v1/lab/issues"
@@ -136,7 +145,7 @@ const displayAllData = (issues) =>{
         
         
                 
-                <div class="bg-white shadow rounded-md h-64 ${issue.status === "open" ? 'border-t-3 border-green-400' : 'border-t-3 border-[#A855F7]'}">
+                <div onclick="loadIssueDetails(${issue.id})" class="bg-white shadow rounded-md h-64 ${issue.status === "open" ? 'border-t-3 border-green-400' : 'border-t-3 border-[#A855F7]'}">
                     <div class="p-4">
                     <div class="flex justify-between items-center mb-3">
                         ${issue.status === "open" ? '<img src="./assets/Open-Status.png" alt="">' : '<img src="./assets/Closed- Status .png" alt="">'}
@@ -166,6 +175,46 @@ const displayAllData = (issues) =>{
         allIssueCards.appendChild(issueCardDiv)
     })
     manageSpinner(false);
+}
+
+
+const displayIssueDetails = (issue) =>{
+    console.log(issue)
+
+    const detailsContainer = document.getElementById('details-container');
+    detailsContainer.innerHTML = `
+    
+                    <div>
+                        <h1 class="font-bold text-[24px] text-[#1F2937]">${issue.title}</h1>
+                        <div class="flex gap-3 items-center">
+                            <div class="badge ${issue.status === "open" ? 'badge-success' : 'badge-primary'}">${issue.status}</div>
+                            <p class="text-[#64748B] text-[12px]">Opened by ${issue.author}</p>
+                            <p class="text-[#64748B] text-[12px]">${issue.createdAt}</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-2 items-center">
+                        ${creatElements(issue.labels)}
+                    </div>
+
+                    <div>
+                        <p class="text-[#64748B]">${issue.description}</p>
+                    </div>
+
+                    <div class="bg-gray-100 rounded-md p-2 flex justify-around">
+                        <div class="space-y-1">
+                            <p class="text-[#64748B]">Assignee:</p>
+                            <p class="text-[#1F2937] font-semibold">${issue.assignee ? issue.assignee : 'assignee not found'}</p>
+                        </div>
+                        <div class="space-y-1">
+                            <p class="text-[#64748B]">Priority:</p>
+                            <div class="badge ${issue.priority === 'high' ? 'badge-error' : 'badge-warning'}">${issue.priority}</div>
+                        </div>
+                    </div>
+    
+    `;
+
+    document.getElementById("issue_modal").showModal();
 }
 
 
@@ -207,7 +256,7 @@ const displayOpenData = (open) =>{
 
        openCardDiv.innerHTML = `
        
-        <div class="bg-white shadow rounded-md h-64 border-t-3 border-green-400">
+        <div onclick="loadIssueDetails(${elem.id})" class="bg-white shadow rounded-md h-64 border-t-3 border-green-400">
                     <div class="p-4">
                     <div class="flex justify-between items-center mb-3">
                        <img src="./assets/Open-Status.png" alt="">
@@ -274,7 +323,7 @@ const displayClosedData = (closed) =>{
 
         closedCardDiv.innerHTML = `
         
-            <div class="bg-white shadow rounded-md h-64 border-t-3 border-[#A855F7]">
+            <div onclick="loadIssueDetails(${elem.id})" class="bg-white shadow rounded-md h-64 border-t-3 border-[#A855F7]">
                     <div class="p-4">
                     <div class="flex justify-between items-center mb-3">
                        <img src="./assets/Closed- Status .png" alt="">
