@@ -47,7 +47,7 @@
          <section class="bg-white p-6 rounded-md shadow flex flex-wrap gap-4 mb-5">
             <button onclick="showOnly('all-btn')" id="all-btn" class="btn btn-primary px-[49px]">All</button>
             <button onclick="showOnly('open-btn') , loadOpenData()" id="open-btn"class="btn px-[49px]">Open</button>
-            <button onclick="showOnly('closed-btn')" id="closed-btn"class="btn px-[49px]">Closed</button>
+            <button onclick="showOnly('closed-btn') , loadClosedData()" id="closed-btn"class="btn px-[49px]">Closed</button>
          </section>
 
          <!-- all section -->
@@ -70,6 +70,16 @@
 
 
           </section>
+
+
+          <!-- closed section -->
+           <section id="closed-section" class="bg-[#FBFBFB] shadow rounded-md ">
+
+            <div id="closed-issue-count" class="p-6 md:flex justify-between items-center bg-white rounded-md shadow"></div>
+
+            <div id="closed-issue-container" class="p-6 grid md:grid-cols-2 lg:grid-cols-4 gap-3"></div>
+
+           </section>
     </main>
 
 
