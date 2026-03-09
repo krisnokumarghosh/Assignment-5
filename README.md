@@ -25,6 +25,7 @@ ANS. = Arrow function is a mordern and easier version of traditional function. I
       }
 
 short form ,
+
          const multi = (a, b) => a * b;
 
 
