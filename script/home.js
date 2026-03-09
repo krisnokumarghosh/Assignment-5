@@ -164,9 +164,16 @@ const displayAllData = (issues) =>{
 
                 </div>
 
-                <div class="p-4 border-t border-gray-200 space-y-1">
+                <div class="p-4 border-t border-gray-200 md:flex justify-between space-y-1">
+                   <div class="space-y-1">
                     <p class="text-[#64748B] text-[12px]">#${issue.id} by ${issue.author}</p>
                     <p class="text-[#64748B] text-[12px]">${issue.createdAt}</p>
+                   </div>
+
+                   <div class="space-y-1 md:text-right">
+                    <p class="text-[#64748B] text-[12px]">${issue.assignee ? issue.assignee :'assignee not found'}</p>
+                    <p class="text-[#64748B] text-[12px]">${issue.updatedAt}</p>
+                   </div>
                 </div>
                 </div>
 
@@ -275,9 +282,16 @@ const displayOpenData = (open) =>{
 
                 </div>
 
-                <div class="p-4 border-t border-gray-200 space-y-1">
+                <div class="p-4 border-t border-gray-200 md:flex justify-between space-y-1">
+                   <div class="space-y-1">
                     <p class="text-[#64748B] text-[12px]">#${elem.id} by ${elem.author}</p>
                     <p class="text-[#64748B] text-[12px]">${elem.createdAt}</p>
+                   </div>
+
+                   <div class="space-y-1 md:text-right">
+                    <p class="text-[#64748B] text-[12px]">${elem.assignee ? elem.assignee :'assignee not found'}</p>
+                    <p class="text-[#64748B] text-[12px]">${elem.updatedAt}</p>
+                   </div>
                 </div>
                 </div>
        
@@ -342,9 +356,16 @@ const displayClosedData = (closed) =>{
 
                 </div>
 
-                <div class="p-4 border-t border-gray-200 space-y-1">
+                <div class="p-4 border-t border-gray-200 md:flex justify-between space-y-1">
+                   <div class="space-y-1">
                     <p class="text-[#64748B] text-[12px]">#${elem.id} by ${elem.author}</p>
                     <p class="text-[#64748B] text-[12px]">${elem.createdAt}</p>
+                   </div>
+
+                   <div class="space-y-1 md:text-right">
+                    <p class="text-[#64748B] text-[12px]">${elem.assignee ? elem.assignee :'assignee not found'}</p>
+                    <p class="text-[#64748B] text-[12px]">${elem.updatedAt}</p>
+                   </div>
                 </div>
                 </div>
         
@@ -429,9 +450,16 @@ const displaySearchIssue = (search) =>{
 
                 </div>
 
-                <div class="p-4 border-t border-gray-200 space-y-1">
+                <div class="p-4 border-t border-gray-200 md:flex justify-between space-y-1">
+                   <div class="space-y-1 ">
                     <p class="text-[#64748B] text-[12px]">#${el.id} by ${el.author}</p>
                     <p class="text-[#64748B] text-[12px]">${el.createdAt}</p>
+                   </div>
+
+                   <div class="space-y-1 md:text-right">
+                    <p class="text-[#64748B] text-[12px]">${el.assignee ? el.assignee :'assignee not found'}</p>
+                    <p class="text-[#64748B] text-[12px]">${el.updatedAt}</p>
+                   </div>
                 </div>
                 </div>
         
