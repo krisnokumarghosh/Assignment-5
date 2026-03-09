@@ -43,10 +43,12 @@ const activeOnly = (id) =>{
     const allSection = document.getElementById('all-issue-container');
     const openSection = document.getElementById('open-section');
     const closedSection = document.getElementById('closed-section');
+    const searchSection = document.getElementById('search-section');
 
     allSection.classList.add('hidden');
     openSection.classList.add('hidden');
     closedSection.classList.add('hidden');
+    searchSection.classList.add('hidden');
 
     const only = document.getElementById(id);
     only.classList.remove('hidden');
@@ -184,7 +186,7 @@ const displayIssueDetails = (issue) =>{
     const detailsContainer = document.getElementById('details-container');
     detailsContainer.innerHTML = `
     
-                    <div>
+                    <div class="space-y-2">
                         <h1 class="font-bold text-[24px] text-[#1F2937]">${issue.title}</h1>
                         <div class="flex gap-3 items-center">
                             <div class="badge ${issue.status === "open" ? 'badge-success' : 'badge-primary'}">${issue.status}</div>
@@ -354,3 +356,88 @@ const displayClosedData = (closed) =>{
 }
 
 loadAllData();
+
+
+
+document.getElementById('search-btn').addEventListener('click' , () =>{
+     manageSpinner(true);
+    showOnly('search-btn');
+    activeOnly('search-section');
+    const input = document.getElementById('input-search');
+    const inputValue = input.value.trim().toLowerCase();
+    console.log(inputValue);
+
+    fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${inputValue}`)
+    .then((res) => res.json())
+    .then((data) => displaySearchIssue(data.data))
+    
+})
+
+
+const displaySearchIssue = (search) =>{
+    console.log(search);
+
+    const searchCount = document.getElementById('search-issue-count');
+    const searchContainer = document.getElementById('search-issue-container');
+    searchCount.innerHTML = "";
+    searchContainer.innerHTML = "";
+
+    searchCount.innerHTML = `
+    
+        <div class="flex items-center gap-2">
+                    <div class="bg-[#ECE4FF] rounded-full p-2">
+                        <img src="./assets/Aperture.png" alt="" class="h-[27px] w-[27px] ">
+                    </div>
+                    <div>
+                        <h2 class="font-semibold text-[20px] text-[#1F2937]">${search.length} Issues</h2>
+                        <p class="text-[#64748B]">Track and manage your project issues</p>
+                    </div>
+                </div>
+
+                <!-- top right div -->
+                 <div class="flex gap-3">
+                    <div class="flex items-center gap-1">
+                        <img src="./assets/Ellipse 2.png" alt="">
+                        <p class="font-medium text-[#1F2937]">Open</p>
+                    </div>
+                    <div class="flex items-center gap-1">
+                        <img src="./assets/Ellipse 2 (1).png" alt="">
+                        <p class="font-medium text-[#1F2937]">Closed</p>
+                    </div>
+                 </div>
+    
+    `
+
+    search.forEach((el) => {
+        const searchDiv = document.createElement('div');
+        searchDiv.innerHTML = `
+        
+             <div onclick="loadIssueDetails(${el.id})" class="bg-white shadow rounded-md min-h-64 ${el.status === "open" ? 'border-t-3 border-green-400' : 'border-t-3 border-[#A855F7]'}">
+                    <div class="p-4">
+                    <div class="flex justify-between items-center mb-3">
+                        ${el.status === "open" ? '<img src="./assets/Open-Status.png" alt="">' : '<img src="./assets/Closed- Status .png" alt="">'}
+                        <p class="px-[25px] py-1.5 ${el.priority === "high" ? 'bg-red-300 text-[#F8FAFC]' :'bg-[#FFF8DB] text-[#D97706]'} rounded-full font-medium text-[12px] ">${el.priority} </p>
+                    </div>
+
+                    <div>
+                        <h3 class="font-semibold text-[14px] text-[#1F2937]">${el.title}</h3>
+                        <p class="text-[12px] text-[#64748B]">${el.description}</p>
+                        <div class="flex justify-between mt-3">
+                            ${creatElements(el.labels)}
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="p-4 border-t border-gray-200 space-y-1">
+                    <p class="text-[#64748B] text-[12px]">#${el.id} by ${el.author}</p>
+                    <p class="text-[#64748B] text-[12px]">${el.createdAt}</p>
+                </div>
+                </div>
+        
+        `
+        searchContainer.appendChild(searchDiv);
+    })
+
+    manageSpinner(false);
+}
